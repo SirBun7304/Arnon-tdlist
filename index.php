@@ -8,7 +8,8 @@
 </head>
 
 <body>
-<h1>Arnon-TDLIST</h1>
+    <h1>Arnon-TDLIST</h1>
+    $std = "Arnon";
 </body>
 
 </html>
