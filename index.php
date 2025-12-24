@@ -13,6 +13,8 @@
 <h1>sajsdhlajsdhl</h1>
 <h1>asdjfho</h1>
 
+$name=arm
+
 </body>
 
 </html>
