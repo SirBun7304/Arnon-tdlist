@@ -13,7 +13,7 @@
 <h1>sajsdhlajsdhl</h1>
 <h1>asdjfho</h1>
 
-$name=arm
+$name=arm $name=arm
 
 </body>
 
