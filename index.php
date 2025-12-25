@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!doctype html>
 <html lang="th">
 
@@ -63,6 +70,11 @@
             <div class="row">
                 <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
 
+                    <div class="d-flex justify-content-end mb-2">
+                        <span class="me-3 align-self-center text-muted">สวัสดี, <strong><?php echo $_SESSION['name']; ?></strong></span>
+                        <a href="logout.php" class="btn btn-sm btn-outline-secondary">ออกจากระบบ</a>
+                    </div>
+
                     <h1 class="text-center main-title">📝 My To Do List</h1>
 
                     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -78,7 +90,8 @@
                     // ตั้งค่าภาษาไทยให้รองรับ (ถ้ามีปัญหาภาษาไทย)
                     mysqli_set_charset($Data, "utf8");
 
-                    $sql = "SELECT * FROM list order by id desc";
+                    $user_id = $_SESSION['user_id'];
+                    $sql = "SELECT * FROM list WHERE user_id = '$user_id' order by id desc";
                     $query = mysqli_query($Data, $sql) or die("query failed");
 
                     // ตรวจสอบว่ามีข้อมูลไหม
@@ -96,7 +109,7 @@
                                                     ✅
                                                 <?php } ?>
 
-                                                <span class="task-text"><?php echo $data['task']; ?></span>
+                                                <span class="task-text ms-2"><?php echo $data['task']; ?></span>
                                             </div>
                                         </div>
 
