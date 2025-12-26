@@ -11,51 +11,110 @@
     <style>
         body {
             font-family: 'Kanit', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* ใช้พื้นหลังสีฟ้าสว่างจางๆ ดูสะอาดตา */
+            background-color: #f0f7ff;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0;
         }
 
         .card {
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            border-radius: 24px;
+            /* เงาสีฟ้าอ่อนแบบละมุน */
+            box-shadow: 0 10px 40px rgba(74, 144, 226, 0.08);
+            padding: 40px;
             width: 100%;
             max-width: 450px;
+            background-color: #ffffff;
+        }
+
+        .register-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .register-header ion-icon {
+            font-size: 55px;
+            color: #4a90e2;
+            /* สีฟ้าอ่อนหลัก */
+            margin-bottom: 10px;
+        }
+
+        .register-title {
+            font-weight: 500;
+            color: #2d3436;
+            font-size: 1.6rem;
+            letter-spacing: 0.5px;
+        }
+
+        .form-label {
+            font-weight: 400;
+            color: #636e72;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
         }
 
         .form-control {
             border-radius: 12px;
             padding: 12px 15px;
-            border: 2px solid #eee;
+            border: 1px solid #e1e8ed;
+            background-color: #fcfdfe;
+            transition: all 0.3s ease;
         }
 
         .form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: none;
-            background-color: #f8f9ff;
+            border-color: #4a90e2;
+            /* ขอบสีฟ้าเมื่อโฟกัส */
+            box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+            background-color: #ffffff;
+            outline: none;
         }
 
-        .btn-primary {
+        .btn-register {
             border-radius: 12px;
-            padding: 10px 20px;
-            background-color: #0d6efd;
+            padding: 12px;
+            background-color: #4a90e2;
             border: none;
-            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+            color: white;
+            font-weight: 500;
+            width: 100%;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .btn-primary:hover {
-            background-color: #0b5ed7;
+        .btn-register:hover {
+            background-color: #357abd;
             transform: translateY(-2px);
-            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
+            color: white;
         }
 
-        ion-icon {
-            font-size: 24px;
-            color: #0d6efd;
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #636e72;
+        }
+
+        .login-link a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* ตกแต่งช่อง Input เมื่อมี Icon (ถ้าต้องการ) */
+        .input-group-text {
+            background-color: transparent;
+            border: none;
+            color: #4a90e2;
         }
     </style>
 </head>

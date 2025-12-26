@@ -11,51 +11,103 @@
     <style>
         body {
             font-family: 'Kanit', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* ใช้พื้นหลังสีเขียวอ่อนจางๆ ช่วยให้การ์ดสีขาวดูสะอาดเด่นขึ้น */
+            background-color: #f0f7f4;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0;
         }
 
         .card {
             border: none;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            border-radius: 24px;
+            /* ความโค้งมนที่ดูทันสมัย */
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.1);
+            /* เงาสีเขียวจางๆ */
+            padding: 40px;
             width: 100%;
             max-width: 400px;
+            background-color: #ffffff;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header ion-icon {
+            font-size: 50px;
+            color: #2ecc71;
+            /* สีเขียวหลัก */
+            margin-bottom: 10px;
+        }
+
+        .login-title {
+            font-weight: 500;
+            color: #2d3436;
+            font-size: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 400;
+            color: #636e72;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
         }
 
         .form-control {
             border-radius: 12px;
             padding: 12px 15px;
-            border: 2px solid #eee;
+            border: 1px solid #e1e8ed;
+            background-color: #f9fbfb;
+            transition: all 0.3s ease;
         }
 
         .form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: none;
-            background-color: #f8f9ff;
+            border-color: #2ecc71;
+            /* ขอบสีเขียวเมื่อคลิกพิมพ์ */
+            box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.1);
+            background-color: #ffffff;
+            outline: none;
         }
 
-        .btn-success {
+        .btn-login {
             border-radius: 12px;
-            padding: 10px 20px;
-            background-color: #27ae60;
+            padding: 12px;
+            background-color: #2ecc71;
             border: none;
-            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
+            color: white;
+            font-weight: 500;
+            width: 100%;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .btn-success:hover {
-            background-color: #219150;
+        .btn-login:hover {
+            background-color: #27ae60;
             transform: translateY(-2px);
-            transition: all 0.3s;
+            box-shadow: 0 6px 15px rgba(46, 204, 113, 0.3);
+            color: white;
         }
 
-        ion-icon {
-            font-size: 24px;
-            color: #27ae60;
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #636e72;
+        }
+
+        .register-link a {
+            color: #2ecc71;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>

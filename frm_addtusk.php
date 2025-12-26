@@ -11,77 +11,99 @@
     <style>
         body {
             font-family: 'Kanit', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* ใช้สีพื้นหลังเดียวกับหน้าหลักเพื่อให้ดูเป็นแอปเดียวกัน */
+            background-color: #fcfcfc;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+            justify-content: center;
         }
 
         .container {
-            max-width: 500px;
-            /* จำกัดความกว้างของฟอร์ม */
+            max-width: 450px;
+            /* กระชับพื้นที่ให้ดู Minimal */
         }
 
         .card {
-            border: none;
+            border: 1px solid #eee;
+            /* เส้นขอบบางๆ แบบหน้าหลัก */
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+            padding: 30px;
+            background-color: #ffffff;
         }
 
         .form-label {
-            font-weight: 500;
-            color: #4b4b4b;
-            margin-bottom: 10px;
+            font-weight: 400;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
         }
 
         .form-control {
             border-radius: 12px;
-            padding: 12px 15px;
-            border: 2px solid #eee;
+            padding: 12px 18px;
+            border: 1px solid #eee;
+            background-color: #f8f9fa;
             transition: all 0.3s;
+            font-weight: 300;
         }
 
         .form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: none;
-            background-color: #f8f9ff;
+            border-color: #4a90e2;
+            /* สี Seafoam Green เมื่อกดพิมพ์ */
+            box-shadow: 0 0 0 4px rgba(72, 180, 166, 0.1);
+            background-color: #fff;
+            outline: none;
         }
 
         .btn {
             border-radius: 12px;
-            padding: 10px 20px;
-            font-weight: 400;
+            padding: 12px 20px;
+            font-weight: 500;
             transition: all 0.3s;
         }
 
+        /* ปุ่มบันทึก (ใช้สีเดียวกับหน้าหลัก) */
         .btn-success {
-            background-color: #27ae60;
+            background-color: #4a90e2;
             border: none;
-            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
+            box-shadow: 0 4px 12px rgba(58, 173, 158, 0.2);
+            color: white;
         }
 
         .btn-success:hover {
-            background-color: #219150;
+            background-color: #1a62b5ff;
             transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(72, 180, 166, 0.3);
+            color: white;
         }
 
+
         .btn-secondary {
-            background-color: #ecf0f1;
-            color: #7f8c8d;
-            border: none;
+            background-color: #fff;
+            color: #95a5a6;
+            border: 1px solid #eee;
         }
 
         .btn-secondary:hover {
-            background-color: #bdc3c7;
-            color: #fff;
+            background-color: #f8f9fa;
+            color: #7f8c8d;
+            border-color: #ddd;
         }
 
-        ion-icon {
-            font-size: 24px;
-            color: #0d6efd;
-            margin-bottom: 10px;
+
+        .form-icon {
+            font-size: 40px;
+            color: #48b4a6;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .form-title {
+            font-weight: 500;
+            color: #2d3436;
+            margin-bottom: 25px;
         }
     </style>
 </head>
@@ -90,7 +112,7 @@
     <div class="container">
         <div class="card">
             <div class="card-body text-center">
-                <ion-icon name="add-circle"></ion-icon>
+
                 <h3 class="mb-4">เพิ่มรายการใหม่</h3>
 
                 <form action="ad_data.php" method="POST" class="text-start">

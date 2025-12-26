@@ -1,6 +1,8 @@
 <?php
 include("Data.php");
+
 $id = $_GET['id'];
+
 $sql = "SELECT * FROM list WHERE id = $id";
 $query = mysqli_query($Data, $sql) or die("query failed");
 $data = mysqli_fetch_array($query);
@@ -12,107 +14,128 @@ $data = mysqli_fetch_array($query);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>เพิ่มรายการใหม่ | My To-Do List</title>
+    <title>แก้ไขรายการ | My To-Do List</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
-
 
     <style>
         body {
             font-family: 'Kanit', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* ปรับพื้นหลังเป็นสีฟ้าเทาอ่อนเหมือนหน้าหลัก */
+            background-color: #f4f7f9;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+            justify-content: center;
+            margin: 0;
         }
 
         .container {
-            max-width: 500px;
-            /* จำกัดความกว้างของฟอร์ม */
+            max-width: 450px;
         }
 
         .card {
-            border: none;
+            border: 1px solid #e1e8ed;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            box-shadow: 0 10px 25px rgba(74, 144, 226, 0.05);
+            padding: 30px;
+            background-color: #ffffff;
         }
 
         .form-label {
-            font-weight: 500;
-            color: #4b4b4b;
-            margin-bottom: 10px;
+            font-weight: 400;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
         }
 
         .form-control {
             border-radius: 12px;
-            padding: 12px 15px;
-            border: 2px solid #eee;
+            padding: 12px 18px;
+            border: 1px solid #e1e8ed;
+            background-color: #f8f9fa;
             transition: all 0.3s;
+            font-weight: 300;
         }
 
         .form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: none;
-            background-color: #f8f9ff;
+            border-color: #4a90e2;
+            /* สีฟ้าเมื่อกดพิมพ์ */
+            box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+            background-color: #fff;
+            outline: none;
         }
 
         .btn {
             border-radius: 12px;
-            padding: 10px 20px;
-            font-weight: 400;
+            padding: 12px 20px;
+            font-weight: 500;
             transition: all 0.3s;
         }
 
+        /* ปุ่มบันทึกข้อมูล (โทนสีฟ้า) */
         .btn-success {
-            background-color: #27ae60;
+            background-color: #4a90e2;
             border: none;
-            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+            color: white;
         }
 
         .btn-success:hover {
-            background-color: #219150;
+            background-color: #357abd;
             transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(74, 144, 226, 0.3);
+            color: white;
         }
 
+        /* ปุ่มยกเลิก */
         .btn-secondary {
-            background-color: #ecf0f1;
-            color: #7f8c8d;
-            border: none;
+            background-color: #fff;
+            color: #95a5a6;
+            border: 1px solid #e1e8ed;
         }
 
         .btn-secondary:hover {
-            background-color: #bdc3c7;
-            color: #fff;
+            background-color: #f8f9fa;
+            color: #7f8c8d;
+            border-color: #cbd5e0;
         }
 
-        ion-icon {
-            font-size: 24px;
-            color: #0d6efd;
-            margin-bottom: 10px;
+        /* ไอคอนสีฟ้า */
+        .form-icon {
+            font-size: 45px;
+            color: #4a90e2;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        h3 {
+            font-weight: 500;
+            color: #2d3436;
+            font-size: 1.5rem;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="card">
-            <div class="card-body text-center">
-                <ion-icon name="add-circle"></ion-icon>
+        <div class="card shadow-sm">
+            <div class="card-body text-center p-0">
+                <ion-icon name="create-outline" class="form-icon"></ion-icon>
                 <h3 class="mb-4">แก้ไขรายการ</h3>
 
                 <form action="edit_data.php" method="POST" class="text-start">
                     <div class="mb-4">
-                        <label for="taskInput" class="form-label">สิ่งที่คุณต้องทำ</label>
-                        <input type="text" name="add" id="taskInput" class="form-control" value="<?php echo $data['task']; ?>"
-                            placeholder="เช่น ซื้อของ, อาบน้ำ..." required autofocus>
+                        <label for="taskInput" class="form-label">สิ่งที่คุณต้องการปรับเปลี่ยน</label>
+                        <input type="text" name="add" id="taskInput" class="form-control"
+                            value="<?php echo $data['task']; ?>"
+                            placeholder="ระบุรายการงานของคุณ..." required autofocus>
                         <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
                     </div>
 
                     <div class="d-grid gap-2">
                         <button type="submit" name="submit_btn" class="btn btn-success">
-                            บันทึกข้อมูล
+                            บันทึกการเปลี่ยนแปลง
                         </button>
                         <a href="index.php" class="btn btn-secondary text-center">
                             ยกเลิก
